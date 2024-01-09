@@ -1,3 +1,6 @@
+## MESSAGE FROM ME:
+So going through this project, I started this only 01.08.2024 And I've been working on it sinse, I've had 2 Days to work on this now as of posting this and I'll keep working on documenting the games source and maybe releasing an SDK for the game. For now keep following and maybe we can get somewhere, I'll be working on DLL's & Test programs to test out the Decompression and Compression along with reversing the rabbids DLL Interfaces & vTables.
+
 # Zombi(U) Source Reference for Modding.
 The Zombi(U) Source & Compression/Decompression Reference since 0.1/2024, This lists all the information of the Zombi(U) Source & Compression/Decompression systems inside of the games internal code **zombi.exe** & **lzopro.dll**, And other systems.
 
