@@ -1,0 +1,55 @@
+# INTERFACES
+
+```asm
+1E069D44:"mem::AllocatorInterface"
+1E069E74:"trace::MessageBoxInterface"
+1E069E90:"LyNUserManagerInterface"
+1E069DC0:"reflx::ClassRegistratorInterface"
+1E069D5C:"reflx::IdentifiableServicesInterface"
+1E069DAC:"gamenet::Interface"
+1E069D98:"gamenet::Private"
+1E069D84:"ai::EngineInterface"
+1E069EA8:"loa::Interface"
+1E119F20:"lynutils::DisplayInterface"
+1E069DF0:"physics::Interface"
+1E069EB8:"big::Interface"
+1E069F78:&L"69d6-6ede-4bf6-8e1f-f1567887c449}}"
+1E06A104:"savegame::SaveInterface"
+1E06A184:"platform::PlayerInterface"
+1E06A0D0:"bootEnvironment::Interface"
+1E069E2C:"FIRe::FIRe_Interface"
+1E069E44:"TeXTs::DialogSDK_Interface"
+1E069E1C:"io::Interface"
+1E069E04:&L"}.{0b4b69d6-6ede-4bf6-8e1f-f1567887c449}"
+1E069F14:"slib::ai"
+1E06A138:"snk::Interface"
+1E06A148:"snf::Interface"
+1E06A158:"snl::Interface"
+1E069DE4:"Interface"
+1E06A168:"textProjector::Interface"
+1E069F58:"lynutils::UbiServicesInterface"
+1E069F8C:"rendezvous::Interface"
+1E069FA4:"rendezvous::UserStorageInterface"
+1E069FC8:"rendezvous::TrackingInterface"
+1E069FE8:"rendezvous::MessageStoreInterface"
+1E06A00C:"rendezvous::LeaderboardInterface"
+1E06A030:"rendezvous::FriendInterface"
+1E06A04C:"rendezvous::UserContentStoreInterface"
+1E06A074:"rendezvous::NotificationInterface"
+1E069F3C:"rendezvous::UPlayInterface"
+1E06A098:"rendezvous::ProfileInterface"
+1E06A0B8:"vip::ManagerInterface"
+1E069EC8:"award::ManagerInterface"
+1E069EE0:"user::ManagerInterface"
+1E069EF8:"presence::ManagerInterface"
+1E06A0EC:&L"00000}.{0b4b69d6-6ede-4bf6-8e1f-f1567887c449}"
+1E069E60:"error::Interface"
+1E06A11C:"CameraTracker::Interface"
+1E0A6330:&"rabbids::Library"
+
+MEMORY ADDRESS ARE BOUND TO CHANGE ON OTHER COPIES/VERSIONS OF THE GAME...
+INTERFACE NAMES AND DEFINITIONS WILL STAY THE SAME...
+
+FOUND IN ( Rabbids.win32.f.dll -> rabbids_Library_start )
+AS ( EXPORTED FUNCTION )
+```
