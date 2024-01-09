@@ -58,6 +58,8 @@ FOUND IN ( lzopro.dll -> lzopro_lzo1x_decompress )
 AS ( EXPORTED FUNCTION )
 ```
 All Arguments should be passed as Pointers when working with Assembly.
+#### Using this for Decompressing Objects & Assets.
+As this is the main Function for Decompressing Assets & Objects compressed in LZO1X we can use it backwards to Decompress Objects & Assets we want, Wether that may be externally by Importing the DLL into our own program or abusing it with a DLL Injection and invoking the function manually. If you want to Decompress, You want to start here.
 
 ### Main Compression Functions
 There isn't much documentation on **LZO1X Compression** in Zombi(U) or does the game ever activly realtime compress unlike when it has to decompress. But these would be the main compression functions inside of **lzopro.dll** that would be used to compress.
