@@ -12,7 +12,8 @@ This is the main function located as an **Exported Function** inside of **(zombi
 }
 undefined4 __thiscall lzopro_lzo1x_decompress(void *this,int *param_1)
 ```
-![What does this mean?](https://github.com/i32-Sudo/ZombiU_Decompilier_mod_Reference/blob/main/.github/image_2024-01-08_210441556.png?raw=true)
+![doc0523](https://github.com/i32-Sudo/ZombiU_Decompilier_mod_Reference/blob/main/.github/image_2024-01-08_210441556.png?raw=true)
+The program calls this Function with details on the **File Location**, **OperandArray**, and then collects information on the compressed object such as **File Size, Data Size, Buffer Size, Data Type, Etc** which will be passed onto **lzopro.dll->lzopro_lzo1x_decompress(...)** which will carry on to the Decompression and Compression process outputting and returning an Integer of **1/0** for Success/Fail along with exporting the Decompressed data to the **THIRD** Paramater **param_3**.
 
 
 # lzopro.dll | Compression/Decompression
@@ -108,6 +109,9 @@ int main {
     FreeLibrary(hDLL);
 }
 ```
+
+### Encryption/Decryption & DRM Protection.
+**THIS DOES NOT EXIST.** There is NO Encryption, Decryption, or any DRM Protection. This is a myth passed around when people couldn't figure out why they couldn't import a ripped model from the nVidia Container using something like Ninja Ripper. Ninja Ripper rips models & assets from the nVidia Container where its held in Cache Memory. This only works 30% of the time and carrys 0 Data on the objects needed information.
 
 ### PSUEDO-CODE & ASSEMBLY SOURCE
 #### Check folder "lzopro.dll" for details on Assembly & PseudoCode
@@ -291,6 +295,8 @@ push rabbids.win32.f.1E069EB8           | 1E069EB8:"big::Interface"
 FOUND IN ( Rabbids.win32.f.dll -> rabbids_Library_start )
 AS ( EXPORTED FUNCTION )
 ```
+These **Interfaces** & **Objects** Are very important to the games functionallity as it controls almost 75% Of the games functionallity stored as a **vTable**, I have yet to dump this data but I will soon.
+**Look Through Functions for Details.**
 
 # MORE UPDATES TO COME SOON...
 ## CONTACTS
