@@ -1,7 +1,7 @@
 # Zombi(U) Source Reference for Modding.
 The Zombi(U) Source & Compression/Decompression Reference since 0.1/2024, This lists all the information of the Zombi(U) Source & Compression/Decompression systems inside of the games internal code **zombi.exe** & **lzopro.dll**, And other systems.
 
-# Zombi.exe | Exported Functions
+# Zombi.exe | Exported Functions | MAIN EXECUTABLE
 ### lzopro_lzo1x_decompress | DECOMPRESSION FUNCTION for ZOMBI.EXE
 This is the main function located as an **Exported Function** inside of **(zombi.exe)**, This is the main function the progam calls for decompressing **LZO1X** Compressed objects & assets.
 #### Arguments are passed as below.
@@ -118,7 +118,7 @@ int main {
 
 ### 
 
-# Rabbids.win32.f.dll | API/vTables
+# Rabbids.win32.f.dll | API/vTables | ENGINE LOGIC
 ## rabbids_Library_start | Exported Function
 *rabbids_Library_start* contains information about the LyN Engine & Ubisoft Networking, Along with other Frameworks, SDK's, and Interfaces that may be used for Networking, Graphics, Animations, Models, Assets, Processing, Developer Work, Engine Processing, Etc.
 
