@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iomanip>
 
+/* MinHook -> Download This Yourself */
 #include <MinHook.h>
 #pragma comment(lib, "MinHook.x86.lib")
 
