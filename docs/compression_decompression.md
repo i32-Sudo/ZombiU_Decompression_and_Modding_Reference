@@ -136,11 +136,35 @@ int main {
 }
 ```
 
-### 1.10.2024 - Hijacking Decompressed Data with DLL Injection
-Today introduces a new foundation for Hijacking the Decompressed Raw Data when it comes out of the main function **lzopro_lzo1x_uncompress**, This is done through a DLL Injection with MinHook x86. It's not that hard to do and was pretty easy to setup, It reads the output data from the **_dest** pointer address passed in as an argument for **lzopro_lzo1x_uncompress** and reads the **char-p** data which is written to a **.bin** file. Source code can be found here -> [dumphook_lzopro_lzo1x_decompress.cpp](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/dumphook_lzopro_lzo1x_decompress.cpp)
-
 ### Encryption/Decryption & DRM Protection.
 **THIS DOES NOT EXIST.** There is NO Encryption, Decryption, or any DRM Protection. This is a myth passed around when people couldn't figure out why they couldn't import a ripped model from the nVidia Container using something like Ninja Ripper. Ninja Ripper rips models & assets from the nVidia Container where its held in Cache Memory. This only works 30% of the time and carrys 0 Data on the objects needed information.
+```cpp
+/* Yes... I named this function "plzwork", It took me 6 Hours to fix the stack overflow with MinHook. */
+void __declspec(noinline)plzwork(void* param_1, int param_2, void* param_3, int* param_4) {
+	std::cout << "[$] Hook Called!" << std::endl;
+	signed char* CompressedData = reinterpret_cast<signed char*>(param_1);
+	signed char* UncompressedData = reinterpret_cast<signed char*>(param_3);
+
+	std::cout << "[PARAM_1-ADDR] " << param_1 << std::endl;
+	std::cout << "[PARAM_1-DATA] " << CompressedData << std::endl;
+	std::cout << "[PARAM_2-DATA/INT] " << param_2 << std::endl;
+	std::cout << "[PARAM_3-ADDR] " << param_3 << std::endl;
+	std::cout << "[PARAM_3-DATA] " << UncompressedData << std::endl;
+	std::cout << "[PARAM_4-ADDR] " << param_4 << std::endl;
+
+	std::string randomSuffix = generateRandomString(10);
+	std::string filename = "C:\\...\\ZOMBI_DEC\\dump\\file_" + randomSuffix + ".bin";
+	writeLettersToFile(UncompressedData, filename);
+
+}
+
+int __stdcall HookedLzo1xDecompress(void* param_1,int param_2,void* param_3, int* param_4) {
+	// Call the trampoline to jump back to the original function
+	plzwork(param_1, param_2, param_3, param_4);
+	return (pOriginalLzo1xDecompress(param_1, param_2, param_3, param_4));
+}
+
+```
 
 ### PSUEDO-CODE & ASSEMBLY SOURCE
 #### Check folder "lzopro.dll" for details on Assembly & PseudoCode
