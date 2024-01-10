@@ -1,17 +1,24 @@
 ## MESSAGE FROM ME:
-So going through this project, I started this only 01.08.2024 And I've been working on it since, I've had 2 Days to work on this now as of posting this and I'll keep working on documenting the games source and maybe releasing an SDK for the game. For now keep following and maybe we can get somewhere, I'll be working on DLL's & Test programs to test out the Decompression and Compression along with reversing the rabbids DLL Interfaces & vTables.
+So going more on the date of 1.9.2024, I've done more testing and have released a hook for the function *lzopro_lzo1x_decompress* which allows dumping of decompressed data, I will eventually follow this up but for now, It's just a concept idea. I will also begin reversing the vTables for Rabbids Framework and Interfaces.
+
+| Zombi(U) Content Table
+:----------------------------------------------------------: 
+| Compression & Decompression - **(zombi.exe) [__thiscall lzopro_lzo1x_decompress](#__thiscall-lzopro_lzo1x_decompress)** - **lzopro.dll [lzopro_lzo1x_decompress](#lzopro_lzo1x_decompress)** - **(lzopro.dll) [Main Compression Functions](#Main-Compression-Functions)**
+| Main LyN (Engine) & Game Logic - **Rabbids.win32.f.dll [rabbids_Library_start](#rabbids_Library_start)**
+Mods & Code - **[Hooking function(lzopro_lzo1x_decompress)](#Hooking-function(lzopro_lzo1x_decompress))**
 
 # Zombi(U) Source Reference for Modding.
 The Zombi(U) Source & Compression/Decompression Reference since 0.1/2024, This lists all the information of the Zombi(U) Source & Compression/Decompression systems inside of the games internal code **zombi.exe** & **lzopro.dll**, And other systems.
 
 # Zombi.exe | Exported Functions | MAIN EXECUTABLE
-### lzopro_lzo1x_decompress | DECOMPRESSION FUNCTION for ZOMBI.EXE
+### __thiscall lzopro_lzo1x_decompress | DECOMPRESSION FUNCTION for ZOMBI.EXE
 This is the main function located as an **Exported Function** inside of **(zombi.exe)**, This is the main function the progam calls for decompressing **LZO1X** Compressed objects & assets.
 #### Arguments are passed as below.
 ```cpp
 {
     void* this = None; // This is still undocumented
-    int* param_1; // Should lead to process array containing data.
+    int* param_1; // Should lead to process array containing required data.
+    /* These arguments are sort of unkown to me still. */
 }
 undefined4 __thiscall lzopro_lzo1x_decompress(void *this,int *param_1)
 ```
@@ -39,23 +46,24 @@ The decompression process works off of a **RealTime**/**Live** System of Compres
 The Function **lzopro_lzo1x_decompress(...)** is an exported function inside of ***lzopro.dll***, This is the main decompress function for lzopro, And is what activly realtime decompresses files. This function is called with arguments
 ```cpp
 {
-    void* CompressedData = (void*)compressedData;
-    int compressedSize = compressedFileSize;
-    void* DecompressedData = decompressedData.data();
-    int param_4;
+    /* Recently learned that CompressedData & DecompressedData are stored as Unsiged & Signed 32Bit Arrays*/
+    signed char* param_1; // As Compressed Data for signed char*
+    int param_2; // As param_2 - Size(X) Single Int
+    signed char* param_3; // As Decompressed Data for signed char*
+    int* param_4; // As param_4 - Unkown Result?
 }
-lzopro_lzo1x_decompress(CompressedData, compressedSize, DecompressedData, &param_4)
+typedef int(__stdcall* OriginalLzo1xDecompress)(signed char* param_1, int param_2,signed char* param_3,int* param_4);
 ```
-This returns **(result-integer)** as **&param_4** along with **DecompressedData** as exported **(bytes-encoded)** in the variable of **decompressedData**. This uses **LZO1X** Decompression.
+This returns **(result-integer)** as **&param_4** along with **DecompressedData & CompressedData** as exported **(unsigned 32Bit char)** in the variable of **decompressedData**. This uses **LZO1X** Decompression.
 
 ![doc342](https://raw.githubusercontent.com/i32-Sudo/ZombiU_Decompilier_mod_Reference/main/.github/image_2024-01-08_204702936.png)
 
 #### Arguments Passed As (For Latest Edition 0.1/2024)
 ```asm
-.text:xxxxxxxx arg_0           = dword ptr  4 -> CompressionData
-.text:xxxxxxxx arg_4           = dword ptr  8 -> compressedSize
-.text:xxxxxxxx arg_8           = dword ptr  0Ch -> DecompressedData
-.text:xxxxxxxx arg_C           = dword ptr  10h -> &param_4
+.text:xxxxxxxx arg_0           = dword ptr  4 -> CompressedData (Unsigned-32Bit Char)
+.text:xxxxxxxx arg_4           = dword ptr  8 -> compressedSize (signed32-Int)
+.text:xxxxxxxx arg_8           = dword ptr  0Ch -> DecompressedData (Unsigned-32Bit Char)
+.text:xxxxxxxx arg_C           = dword ptr  10h -> &param_4 (unsigned32-Int Pointer)
 
 FOUND IN ( lzopro.dll -> lzopro_lzo1x_decompress )
 AS ( EXPORTED FUNCTION )
@@ -64,6 +72,30 @@ All Arguments should be passed as Pointers when working with Assembly.
 #### Using this for Decompressing Objects & Assets.
 As this is the main Function for Decompressing Assets & Objects compressed in LZO1X we can use it backwards to Decompress Objects & Assets we want, Wether that may be externally by Importing the DLL into our own program or abusing it with a DLL Injection and invoking the function manually. If you want to Decompress, You want to start here.
 
+### Hooking function(lzopro_lzo1x_decompress)
+*1.9.2024* - I did some testing and came up with a simple hook to read the output decompression data from the ***lzopro_lzo1x_decompression*** function, Here is the code I've wrote to extract that data.
+```cpp
+typedef int(__stdcall* OriginalLzo1xDecompress)(signed char* param_1, int param_2,signed char* param_3,int* param_4);
+OriginalLzo1xDecompress pOriginalLzo1xDecompress = nullptr;
+int __stdcall HookedLzo1xDecompress(signed char* param_1, int param_2,signed char* param_3,int* param_4) {
+	std::cout << "HookedLzo1xDecompress called!" << std::endl;
+
+	/* Create Snapshot of Data to prevent crash */
+	signed char* DecompressedData = param_3;
+	size_t Decomsize = strlen(reinterpret_cast<char*>(DecompressedData));
+
+	signed char* CompressedData = param_1;
+    size_t Recomsize = strlen(reinterpret_cast<char*>(CompressedData));
+
+	std::cout << DecompressedData << std::endl << param_2 << std::endl;
+
+	return pOriginalLzo1xDecompress(param_1, param_2, param_3, param_4);
+}
+```
+I use the MinHook Library to implace my Hook at the base address of ***lzopro_lzo1x_decompress*** and return code flow to the **+4Byte** Address bottom of the ***lzopro_lzo1x_decompress*** function.
+
+![doc342](https://github.com/i32-Sudo/ZombiU_Decompressiong_and_Modding_Reference/blob/main/.github/image_2024-01-09_220617677.png?raw=true)
+**HOOK IMPLANT AT BASE ADDRESS OF *LZOPRO_LZO1X_DECOMPRESS* AND JMP TO +4BYTES FROM BASE**
 ### Main Compression Functions
 There isn't much documentation on **LZO1X Compression** in Zombi(U) or does the game ever activly realtime compress unlike when it has to decompress. But these would be the main compression functions inside of **lzopro.dll** that would be used to compress.
 ```asm
@@ -97,7 +129,7 @@ AS ( EXPORTED FUNCTION )
 ```
 #### I will document these compression functions more a later time...
 
-### Invoke Functions from (lzopro.dll)
+### 1.8.2024 - Invoke Functions from (lzopro.dll)
 Invoking both the Decompression and Compression functions inside of **lzopro.dll** are easy to do enough with **DLL INJECTION HOOKING**. Check project [ZombiU-Mod-Loader](https://github.com/Darkstar6423/ZombiU-Mod-Loader) For learning about **DLL Loading** & **Injection** inside of Zombi(U), If you are writing externally to dump the files outside of Zombi(U), You should invoke these functions directly from your program.
 ```cpp
 typedef void (*DLLFunction)(void* param_1, int param_2, void* param_3, int& param_4);
