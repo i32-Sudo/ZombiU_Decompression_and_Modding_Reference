@@ -1,5 +1,5 @@
-## MESSAGE FROM ME:
-So going more on the date of 1.9.2024, I've done more testing and have released a hook for the function *lzopro_lzo1x_decompress* which allows dumping of decompressed data, I will eventually follow this up but for now, It's just a concept idea. I will also begin reversing the vTables for Rabbids Framework and Interfaces.
+## MESSAGE FROM ME 1.10.2024:
+New Day New Updates, I posted some U-Play and Network/Service Related Functions & Classes, Along with some more LyN Engine Functions & Game Functions that can be invoked from some "developer" console which I'm trying to access. I also posted some Developer Testing Functions I found during that process, I promise to release some more code & mods but so far posting what I found 💖
 
 # Full Documents (Updated, Dont use this main one)
 - [Compression & Decompression](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/docs/compression_decompression.md)
