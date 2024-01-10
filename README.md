@@ -1,11 +1,16 @@
 ## MESSAGE FROM ME:
 So going more on the date of 1.9.2024, I've done more testing and have released a hook for the function *lzopro_lzo1x_decompress* which allows dumping of decompressed data, I will eventually follow this up but for now, It's just a concept idea. I will also begin reversing the vTables for Rabbids Framework and Interfaces.
 
-| Zombi(U) Content Table
+| This Document Covers
 :----------------------------------------------------------: 
-| Compression & Decompression - **(zombi.exe) [__thiscall lzopro_lzo1x_decompress](#__thiscall-lzopro_lzo1x_decompress)** - **lzopro.dll [lzopro_lzo1x_decompress](#lzopro_lzo1x_decompress)** - **(lzopro.dll) [Main Compression Functions](#Main-Compression-Functions)**
-| Main LyN (Engine) & Game Logic - **Rabbids.win32.f.dll [rabbids_Library_start](#rabbids_Library_start)**
-Mods & Code - **[Hooking function(lzopro_lzo1x_decompress)](#Hooking-function(lzopro_lzo1x_decompress))**
+| Compression & Decompression
+| LyN Engine & Game Logistics (Interfaces, SDK's, Frameworks)
+| Internal Game Structure & Assembly/PseudoCode
+| Reversing of the game Zombi(U)
+| Documented Functions & Classes
+| Rendering & Graphics (soon)
+| Audio Processing (soon)
+| Modding Capabilties and Releases (soon)
 
 # Zombi(U) Source Reference for Modding.
 The Zombi(U) Source & Compression/Decompression Reference since 0.1/2024, This lists all the information of the Zombi(U) Source & Compression/Decompression systems inside of the games internal code **zombi.exe** & **lzopro.dll**, And other systems.
