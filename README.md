@@ -13,6 +13,9 @@ So going more on the date of 1.9.2024, I've done more testing and have released 
 | Modding Capabilties and Releases (*soon*)
 | **-------------------------------------------------------------------------------------------------------------------------**
 
+- [Compression & Decompression]([https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/docs/compression_decompression.md])
+- [LyN Engine & Game Logic]([https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/docs/LyN_Game_logic.md])
+
 # Zombi(U) Source Reference for Modding.
 The Zombi(U) Source & Compression/Decompression Reference since 0.1/2024, This lists all the information of the Zombi(U) Source & Compression/Decompression systems inside of the games internal code **zombi.exe** & **lzopro.dll**, And other systems.
 
