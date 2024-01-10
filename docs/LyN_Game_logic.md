@@ -2,6 +2,9 @@
 ## rabbids_Library_start | Exported Function
 *rabbids_Library_start* contains information about the LyN Engine & Ubisoft Networking, Along with other Frameworks, SDK's, and Interfaces that may be used for Networking, Graphics, Animations, Models, Assets, Processing, Developer Work, Engine Processing, Etc.
 
+## Main LyN & Game Logistical Functions (USED)
+**https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/Rabbids.win32.f.dll/rabbids%3A%3A_LyN_Functions.md**
+
 ### Functions/Definitions for rabbids_Library_start
 ```asm
 1E069D44:"mem::AllocatorInterface"
