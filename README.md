@@ -34,7 +34,7 @@ The program calls this Function with details on the **File Location**, **Operand
 
 # lzopro.dll | Compression/Decompression
 ### BASIC COMPRESSION/DECOMPRESSION
-*The decryption of Zombi(U) Game Files & Asset Files work off a compression algorithm called LZO (Lempel-Ziv-Oberhumer Compression) Which allows for quick RealTime/Live Compression and DeCompression. Specifically, Zombi(U) Uses a framework based off of LZO called LZO1X / LZO1XSP (mainly LZO1X).*
+*The decompression of Zombi(U) Game Files & Asset Files work off a compression algorithm called LZO (Lempel-Ziv-Oberhumer Compression) Which allows for quick RealTime/Live Compression and DeCompression. Specifically, Zombi(U) Uses a framework based off of LZO called LZO1X / LZO1XSP (mainly LZO1X).*
 
 ##### *what does this mean and why is it in the main memory?*
 ![What does this mean?](https://github.com/i32-Sudo/ZombiU_Decompilier_mod_Reference/blob/main/.github/image_2024-01-08_205640961.png?raw=true)
