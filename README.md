@@ -4,7 +4,7 @@ New Day New Updates, I posted some U-Play and Network/Service Related Functions 
 ![4DAWIIU](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/.github/4DAWIIU.png?raw=true)
 *I made this when I was 11*
 
-# Full Documents (Updated, Dont use this main one)
+# Full Documents (Updated)
 - [Compression & Decompression](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/docs/compression_decompression.md)
 - [LyN Engine & Game Logic](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/docs/LyN_Game_logic.md)
 - [LyN Engine & Game Functions](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/Rabbids.win32.f.dll/rabbids%3A%3A_LyN_Functions.md)
