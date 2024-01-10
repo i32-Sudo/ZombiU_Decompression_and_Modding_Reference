@@ -5,6 +5,33 @@
 ## Main LyN & Game Logistical Functions (USED)
 **https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/Rabbids.win32.f.dll/rabbids%3A%3A_LyN_Functions.md**
 
+### m_ Client-> Functions
+```asm                                                                              
+216826EF push rabbids.win32.f.2187E500 2187E500 "m_Internals_WeightObject"
+2168F921 push rabbids.win32.f.2187F524 2187F524 "m_Internals_Timer"
+2168F8EB push rabbids.win32.f.2187F510 2187F510 "m_Internals_Status"
+2168F853 push rabbids.win32.f.2187F4C4 2187F4C4 "m_Internals_Speed_Opening"
+2168F884 push rabbids.win32.f.2187F4E0 2187F4E0 "m_Internals_Speed_Close"
+21682751 push rabbids.win32.f.2187E53C 2187E53C "m_Internals_ReferenceSight"
+2168F78F push rabbids.win32.f.2187F454 2187F454 "m_Internals_OpeningMode"
+2168F957 push rabbids.win32.f.2187F538 2187F538 "m_Internals_OpeningDirection"
+2168F7C0 push rabbids.win32.f.2187F46C 2187F46C "m_Internals_OpeningAngle"
+216965B2 push rabbids.win32.f.2187FF20 2187FF20 "m_Internals_Mode"
+2168EB62 push rabbids.win32.f.2187F268 2187F268 "m_Internals_Iteration"
+2168F8B5 push rabbids.win32.f.2187F4F8 2187F4F8 "m_Internals_InitSight"
+2168EB93 push rabbids.win32.f.2187F280 2187F280 "m_Internals_Gravity"
+21682720 push rabbids.win32.f.2187E51C 2187E51C "m_Internals_ForceObjectCustom"
+2168EBF5 push rabbids.win32.f.2187F2AC 2187F2AC "m_Internals_ForceAdd"
+2168EBC4 push rabbids.win32.f.2187F294 2187F294 "m_Internals_CableVisual"
+2168F7F1 push rabbids.win32.f.2187F488 2187F488 "m_Internals_AutoClose_Timer"
+2168F822 push rabbids.win32.f.2187F4A4 2187F4A4 "m_Internals_AutoClose_Distance"
+7BF012CF push overlay.7C21DFD0         7C21DFD0 "assertion failed: st->silk_mode.internalSampleRate == 16000"
+7BF059E3 push overlay.7C21E1E0         7C21E1E0 "assertion failed: st->DecControl.internalSampleRate == 0 || st->DecControl.internalSampleRate == 16000 || st->DecControl.internalSampleRate == 12000 || st->DecControl.internalSampleRate == 8000"
+16FC0BCA push steamclient.177097F8     177097F8 "InternalSetCertificate"
+1720B0C6 push steamclient.17772BD0     17772BD0 "ConVar::InternalSetValue: called with NULL"
+16BEF05E push steamclient.1767623C     1767623C "CCompatManager::InternalSpecifyCompatTool"
+```
+
 ### Functions/Definitions for rabbids_Library_start
 ```asm
 1E069D44:"mem::AllocatorInterface"
@@ -180,3 +207,4 @@ AS ( EXPORTED FUNCTION )
 ```
 These **Interfaces** & **Objects** Are very important to the games functionallity as it controls almost 75% Of the games functionallity stored as a **vTable**, I have yet to dump this data but I will soon.
 **Look Through Functions for Details.**
+
