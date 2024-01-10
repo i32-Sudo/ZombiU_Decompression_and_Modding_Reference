@@ -136,6 +136,9 @@ int main {
 }
 ```
 
+### 1.10.2024 - Hijacking Decompressed Data with DLL Injection
+Today introduces a new foundation for Hijacking the Decompressed Raw Data when it comes out of the main function **lzopro_lzo1x_uncompress**, This is done through a DLL Injection with MinHook x86. It's not that hard to do and was pretty easy to setup, It reads the output data from the **_dest** pointer address passed in as an argument for **lzopro_lzo1x_uncompress** and reads the **char-p** data which is written to a **.bin** file. Source code can be found here -> [dumphook_lzopro_lzo1x_decompress.cpp](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/dumphook_lzopro_lzo1x_decompress.cpp)
+
 ### Encryption/Decryption & DRM Protection.
 **THIS DOES NOT EXIST.** There is NO Encryption, Decryption, or any DRM Protection. This is a myth passed around when people couldn't figure out why they couldn't import a ripped model from the nVidia Container using something like Ninja Ripper. Ninja Ripper rips models & assets from the nVidia Container where its held in Cache Memory. This only works 30% of the time and carrys 0 Data on the objects needed information.
 
