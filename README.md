@@ -11,7 +11,7 @@ So going more on the date of 1.9.2024, I've done more testing and have released 
 | Rendering & Graphics (*soon*)
 | Audio Processing (*soon*)
 | Modding Capabilties and Releases (*soon*)
-| **-----------------------------------------------------------------------------------------------------------------------------------------**
+| **-------------------------------------------------------------------------------------------------------------------------**
 
 # Zombi(U) Source Reference for Modding.
 The Zombi(U) Source & Compression/Decompression Reference since 0.1/2024, This lists all the information of the Zombi(U) Source & Compression/Decompression systems inside of the games internal code **zombi.exe** & **lzopro.dll**, And other systems.
