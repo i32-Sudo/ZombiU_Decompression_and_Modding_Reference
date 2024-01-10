@@ -5,6 +5,7 @@ So going more on the date of 1.9.2024, I've done more testing and have released 
 - [Compression & Decompression](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/docs/compression_decompression.md)
 - [LyN Engine & Game Logic](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/docs/LyN_Game_logic.md)
 - [LyN Engine & Game Functions](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/Rabbids.win32.f.dll/rabbids%3A%3A_LyN_Functions.md)
+- [U-Play Functions & Networking](https://github.com/i32-Sudo/ZombiU_Decompression_and_Modding_Reference/blob/main/uplay_docs/uplay_funcs_serverclient.md)
 
 | This Document Covers
 :----------------------------------------------------------: 
@@ -13,6 +14,7 @@ So going more on the date of 1.9.2024, I've done more testing and have released 
 | Internal Game Structure & Assembly/PseudoCode
 | Reversing of the game Zombi(U)
 | Documented Functions & Classes
+| U-Play & Networking/Server->Client
 | Rendering & Graphics (*soon*)
 | Audio Processing (*soon*)
 | Modding Capabilties and Releases (*soon*)
